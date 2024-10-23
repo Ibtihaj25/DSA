@@ -9,13 +9,13 @@ class Node{
         this.name=name;
     }}
 public class DoubleLinkedList{
-    node head;
+    Node head;
 
     public void insertAtBeginning(String name){
-        node newNode=new node(name);
+        Node newNode=new Node(name);
         insertAtBeginning(newNode);
     }
-    public void insertAtBeginning(node node){
+    public void insertAtBeginning(Node node){
         if(head==null){
             head=node;
         }else{
@@ -24,22 +24,22 @@ public class DoubleLinkedList{
             head=node;
         }}
     public void insertAtEnd(String name){
-        node newNode=new node(name);
+        Node newNode=new Node(name);
         insertAtEnd(newNode);
     }
-    public void insertAtEnd(node node){
+    public void insertAtEnd(Node node){
         if(head==null){
             head=node;
         }else{
-            Lab3.node temp=head;
+            Node temp=head;
             while(temp.next!=null){
                 temp=temp.next;
             }
             temp.next=node;
             node.prev=temp;
         }}
-    public void insertAfterName(String name,node node){
-        Lab3.node temp=head;
+    public void insertAfterName(String name,Node node){
+        Node temp=head;
         while(temp!=null&&!temp.name.equals(name)){
             temp=temp.next;
         }
@@ -52,8 +52,8 @@ public class DoubleLinkedList{
             temp.next=node;
         }}
 
-    public void insertBeforeName(String name,node node){
-        Lab3.node temp=head;
+    public void insertBeforeName(String name,Node node){
+        Node temp=head;
         while(temp!=null&&!temp.name.equals(name)){
             temp=temp.next;
         }
@@ -69,7 +69,7 @@ public class DoubleLinkedList{
         }}
     public void makeCircular(){
         if(head==null)return;
-        node temp=head;
+        Node temp=head;
         while(temp.next!=null){
             temp=temp.next;
         }
@@ -78,7 +78,7 @@ public class DoubleLinkedList{
     }
     public void printAll(){
         if(head==null)return;
-        node temp=head;
+        Node temp=head;
         do{
             System.out.println(temp.name);
             temp=temp.next;
